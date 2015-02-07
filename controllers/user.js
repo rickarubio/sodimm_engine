@@ -84,7 +84,9 @@ exports.postSignup = function(req, res, next) {
 
   var user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    reputation: 0,
+    _gravatar: ''
   });
 
   User.findOne({ email: req.body.email }, function(err, existingUser) {
