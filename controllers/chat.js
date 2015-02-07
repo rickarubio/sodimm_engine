@@ -47,9 +47,10 @@ exports.createChatroom = function(req, res) {
  * @returns {null} void
  */
 exports.getChatroom = function(req, res) {
-  Message.find({ roomId: req.params.roomId }).find(function(err,docs){
-    if (err)
+  Message.find({ roomId: req.params.roomId }).find(function(err, docs) {
+    if (err) {
       console.log('error occured in the database');
+    }
     res.json(docs);
   });
 };
