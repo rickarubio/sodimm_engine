@@ -84,7 +84,9 @@ exports.postSignup = function(req, res, next) {
 
   var user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    reputation: 0,
+    _gravatar: ''
   });
 
   User.findOne({ email: req.body.email }, function(err, existingUser) {
@@ -354,5 +356,19 @@ exports.postForgot = function(req, res, next) {
   ], function(err) {
     if (err) return next(err);
     res.redirect('/forgot');
+  });
+};
+
+exports.getUser = function(req,res,next){
+  var userId = req.params.userId;
+
+  User.findOne({ _id: userId }, function(err, user) {
+    if (!user) {
+      //req.flash('errors', { msg: 'No account with that email address exists.' });
+      //return res.redirect('/forgot');
+      return res.json({});
+    } else {
+      return res.json(user);
+    }
   });
 };
