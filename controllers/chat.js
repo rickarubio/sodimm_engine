@@ -28,8 +28,8 @@ exports.getChatrooms = function(req, res) {
  */
 exports.createChatroom = function(req, res) {
   var newChatroom = new Chat({
-    name: 'test',
-    topic: 'test topic'
+    name: req.body.name,
+    topic: req.body.topic
   });
   newChatroom.save(function (err, doc) {
     if (err) { throw err; }
@@ -59,26 +59,4 @@ exports.getChatroom = function(req, res) {
  * @returns {null} void
  */
 exports.postMessage = function(req, res, next) {
-  req.assert('email', 'Email is not valid').isEmail();
-  req.assert('password', 'Password cannot be blank').notEmpty();
-
-  var errors = req.validationErrors();
-
-  if (errors) {
-    req.flash('errors', errors);
-    return res.redirect('/login');
-  }
-
-  passport.authenticate('local', function(err, user, info) {
-    if (err) return next(err);
-    if (!user) {
-      req.flash('errors', { msg: info.message });
-      return res.redirect('/login');
-    }
-    req.logIn(user, function(err) {
-      if (err) return next(err);
-      req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect(req.session.returnTo || '/');
-    });
-  })(req, res, next);
 };
