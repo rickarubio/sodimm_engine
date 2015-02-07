@@ -1,6 +1,7 @@
 // var _ = require('lodash');
 // var async = require('async');
 var Chat = require('../models/Chat');
+var Message = require('../models/Message');
 // var secrets = require('../config/secrets');
 
 /**
@@ -58,6 +59,16 @@ exports.getChatroom = function(req, res) {
  * @param {object} next - next
  * @returns {null} void
  */
-exports.postMessage = function(req, res) {
+exports.postMessage = function(req, res, next) {
+  var message = new Message({
+    userId : req.body.userId,
+    roomId : req.params.roomId,
+    message : req.body.message
+  });
 
+  message.save(function(err) {
+    if (err) return next(err);
+    else
+      res.json(message);
+  });
 };
