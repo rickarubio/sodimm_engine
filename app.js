@@ -26,6 +26,7 @@ var connectAssets = require('connect-assets');
  */
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
+var chatController = require('./controllers/chat');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 
@@ -75,9 +76,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(lusca({
-  csrf: true,
+  csrf: false,
   xframe: 'SAMEORIGIN',
-  xssProtection: true
+  xssProtection: false
 }));
 app.use(function(req, res, next) {
   res.locals.user = req.user;
@@ -110,7 +111,16 @@ app.post('/account/password', passportConf.isAuthenticated, userController.postU
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
+/**
+ * SODIMM routes
+ */
 app.get('/user/:userId', userController.getUser);
+
+app.get('/chat',          chatController.getChatrooms);
+app.post('/chat',         chatController.createChatroom);
+// app.get('/chat/:roomId',  chatController.getChatroom);
+// app.post('/chat/:roomId', chatController.postMessage);
+
 /**
  * API examples routes.
  */
