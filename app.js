@@ -115,6 +115,8 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
  * SODIMM routes
  */
 app.get('/user/:userId', userController.getUser);
+app.post('/chat/:roomId', userController.addMessage);
+
 
 app.get('/chat',          chatController.getChatrooms);
 app.post('/chat',         chatController.createChatroom);
