@@ -58,5 +58,6 @@ exports.getChatroom = function(req, res) {
  * @param {object} next - next
  * @returns {null} void
  */
-exports.postMessage = function(req, res, next) {
+exports.postMessage = function(req, res) {
+
 };

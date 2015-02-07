@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 var chatSchema = new mongoose.Schema({
   name: String,
-  topic: String
+  topic: String,
+  popularity: Number
 });
 
 /**
