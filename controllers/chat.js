@@ -47,10 +47,9 @@ exports.createChatroom = function(req, res) {
  * @returns {null} void
  */
 exports.getChatroom = function(req, res) {
-  Message.find({ roomId: req.params.roomId }).find(function(err, docs) {
-    if (err) {
-      console.log('error occured in the database');
-    }
+  Message.find({ roomId: req.params.roomId }, function(err, docs) {
+    if (err) { throw err; }
+
     res.json(docs);
   });
 };
@@ -63,7 +62,7 @@ exports.getChatroom = function(req, res) {
  * @param {object} next - next
  * @returns {null} void
  */
-exports.postMessage = function(req, res, next) {
+exports.postMessage = function(req, res) {
   var message = new Message({
     userId: req.body.userId,
     roomId: req.params.roomId,
@@ -71,10 +70,8 @@ exports.postMessage = function(req, res, next) {
   });
 
   message.save(function(err) {
-    if (err) {
-      return next(err);
-    } else {
-      res.json(message);
-    }
+    if (err) { throw err; }
+
+    res.json(message);
   });
 };
