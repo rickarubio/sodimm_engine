@@ -26,6 +26,7 @@ var connectAssets = require('connect-assets');
  */
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
+var chatController = require('./controllers/chat');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 
@@ -110,8 +111,17 @@ app.post('/account/password', passportConf.isAuthenticated, userController.postU
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
+/**
+ * SODIMM routes
+ */
 app.get('/user/:userId', userController.getUser);
 app.post('/chat/:roomId', userController.addMessage);
+
+
+app.get('/chat',          chatController.getChatrooms);
+app.post('/chat',         chatController.createChatroom);
+// app.get('/chat/:roomId',  chatController.getChatroom);
+// app.post('/chat/:roomId', chatController.postMessage);
 
 /**
  * API examples routes.
