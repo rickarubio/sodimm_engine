@@ -58,7 +58,7 @@ exports.getChatroom = function(req, res) {
  * @param {object} next - next
  * @returns {null} void
  */
-exports.createChatroom = function(req, res, next) {
+exports.postMessage = function(req, res, next) {
   req.assert('email', 'Email is not valid').isEmail();
   req.assert('password', 'Password cannot be blank').notEmpty();
 
