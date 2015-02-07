@@ -61,14 +61,16 @@ exports.getChatroom = function(req, res) {
  */
 exports.postMessage = function(req, res, next) {
   var message = new Message({
-    userId : req.body.userId,
-    roomId : req.params.roomId,
-    message : req.body.message
+    userId: req.body.userId,
+    roomId: req.params.roomId,
+    message: req.body.message
   });
 
   message.save(function(err) {
-    if (err) return next(err);
-    else
+    if (err) {
+      return next(err);
+    } else {
       res.json(message);
+    }
   });
 };
