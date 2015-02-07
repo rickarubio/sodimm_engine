@@ -6,6 +6,8 @@ var passport = require('passport');
 var User = require('../models/User');
 var secrets = require('../config/secrets');
 
+var Message = require('../models/Message');
+
 /**
  * GET /login
  * Login page.
@@ -371,4 +373,19 @@ exports.getUser = function(req,res,next){
       return res.json(user);
     }
   });
+};
+
+exports.addMessage = function(req,res,next){
+  var message = new Message({
+    userId : req.body.userId,
+    roomId : req.params.roomId,
+    message : req.body.message
+  });
+
+  message.save(function(err) {
+    if (err) return next(err);
+    else
+      res.json(message);
+  });
+
 };

@@ -75,9 +75,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(lusca({
-  csrf: true,
+  csrf: false,
   xframe: 'SAMEORIGIN',
-  xssProtection: true
+  xssProtection: false
 }));
 app.use(function(req, res, next) {
   res.locals.user = req.user;
@@ -111,6 +111,8 @@ app.post('/account/delete', passportConf.isAuthenticated, userController.postDel
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
 app.get('/user/:userId', userController.getUser);
+app.post('/chat/:roomId', userController.addMessage);
+
 /**
  * API examples routes.
  */
