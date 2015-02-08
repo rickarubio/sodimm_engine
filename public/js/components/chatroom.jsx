@@ -30,8 +30,8 @@ var Chatroom = React.createClass({
 
     return (
       <div>
-        <h1>{ this.state.slug }</h1>
-        <h2>{ this.state.topic }</h2>
+        <h1 className="col-sm-1">{ this.state.slug }</h1>
+        <h2 className="col-sm-9">{ this.state.topic }</h2>
         { val }
       </div>
     );
