@@ -7,6 +7,7 @@ var Chatbar = React.createClass({
   render: function() {
     // var formAction = '/chat/' + { this.props.roomId };
     console.log('chatbar props', this.props);
+    // console.log('user is:', user);
 
     return (
       <div className="chatbar row">

@@ -21,11 +21,11 @@ var Chatroom = React.createClass({
   render: function() {
     var messages = this.state.messages;
     console.log('chatroom state:', this.state);
-    var path = '/chat/' + this.state.slug
+    var path = '/chat/' + this.state.slug;
 
     var val = messages.map(function(e) {
       return (
-        <div>{ e.author} | { e.message }</div>
+        <div>{ e.author } | { e.message }</div>
       );
     });
 

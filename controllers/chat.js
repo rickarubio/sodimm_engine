@@ -74,17 +74,25 @@ exports.getChatroom = function(req, res) {
  * @returns {null} void
  */
 exports.postMessage = function(req, res) {
-  var message = new Message({
-    userId: req.body.userId,
-    roomId: req.params.roomId,
-    message: req.body.message,
-    created: new Date()
-  });
-
-  message.save(function(err) {
+  console.log('user is:', req.user);
+  User.findById(req.user._id, function(err, user) {
     if (err) { throw err; }
 
-    res.json(message);
+    console.log('user is', user.profile);
+    var message = new Message({
+      userId: req.user._id,
+      author: user.profile.name,
+      roomId: req.params.roomId,
+      message: req.body.message,
+      created: new Date()
+    });
+    console.log('message is:', message);
+
+    message.save(function(err) {
+      if (err) { throw err; }
+
+      res.json(message);
+    });
   });
 };
 
