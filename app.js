@@ -123,8 +123,7 @@ app.get('/chat',          chatController.getChatrooms);
 app.post('/chat',         chatController.createChatroom);
 app.get('/chat/:roomId',  chatController.getChatroom);
 app.post('/chat/:roomId', chatController.postMessage);
-app.get('/chat/dummy/:dummyId', chatController.postDummy);
-app.post('/chat/dummy/:dummyId',		  chatController.getDummy);
+app.get('/chat/:messageId', chatController.getMessage);
 
 /**
  * API examples routes.
