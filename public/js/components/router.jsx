@@ -1,9 +1,11 @@
 var App = React.createClass({
   render: function() {
     return (
-      <div className="row">
+      <div className="container">
         <Sidebar />
-        <RouteHandler />
+        <div className="row">
+          <RouteHandler />
+        </div>
       </div>
     );
   }
