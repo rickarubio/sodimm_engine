@@ -34,7 +34,8 @@ exports.getChatrooms = function(req, res) {
 exports.createChatroom = function(req, res) {
   var newChatroom = new Chat({
     name: req.body.name,
-    topic: req.body.topic
+    topic: req.body.topic,
+    slug: req.body.name.replace(/\W+/g, "_")
   });
   newChatroom.save(function (err, doc) {
     if (err) { throw err; }
