@@ -17,12 +17,12 @@ var Chatrooms = React.createClass({
   render: function() {
     var rooms = this.state.rooms;
     var val = rooms.map(function(e) {
-      var path = '/chatroom/' + e.name;
+      // var path = '/chatroom/' + e.name;
 
       return (
         <div className='row' key={ e.name }>
           <div className='col-sm-3'>
-            <a href={ path }> { e.name } </a>
+            <Link to='chatroom' params={{ roomId: e.name }}> { e.name } </Link>
           </div>
           <div className='col-sm-3'> { e.topic } </div>
         </div>
@@ -37,8 +37,3 @@ var Chatrooms = React.createClass({
     );
   }
 });
-
-React.render(
-  <Chatrooms />,
-  document.getElementById('chatrooms')
-);

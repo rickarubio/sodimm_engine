@@ -200,6 +200,9 @@ app.post('/chat',         chatController.createChatroom);
 app.get('/chat/:roomId',  chatController.getChatroom);
 app.post('/chat/:roomId', chatController.postMessage);
 // app.get('/chat/:messageId', chatController.getMessage);
+app.get('/user/:userId/getFav', userController.getFav);
+app.get('/user/:userId/addFav/:channelId', userController.addFav);
+app.get('/user/:userId/deleteFav/:channelId', userController.deleteFav);
 
 /*
  * react-router catch-all

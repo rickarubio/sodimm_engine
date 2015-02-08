@@ -35,8 +35,3 @@ var Sidebar = React.createClass({
     );
   }
 });
-
-React.render(
-  <Sidebar />,
-  document.getElementById('sidebar')
-);
