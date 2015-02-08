@@ -29,7 +29,7 @@ var Chatrooms = React.createClass({
     });
 
     return (
-      <div className="col-sm-9">
+      <div className="col-sm-12">
         <h2>Chatrooms</h2>
         <div className='row'>
           <div className='col-sm-3'><h3>Title</h3></div>
