@@ -1,10 +1,3 @@
-var Router = ReactRouter;
-
-var DefaultRoute = Router.DefaultRoute;
-var Link = Router.Link;
-var Route = Router.Route;
-var RouteHandler = Router.RouteHandler;
-var HistoryLocation = Router.HistoryLocation;
 
 /*
  * TODO add sidebar to layout
@@ -31,7 +24,7 @@ var routes = (
 
     <Route
       name="chatroom"
-      path=":roomId"
+      path="chatroom/?:roomId?"
       handler={ Chatroom } />
 
   </Route>
