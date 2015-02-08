@@ -13,7 +13,7 @@ var Chatbar = React.createClass({
       <div className="chatbar row">
         <form action={ this.props.formPath } method='POST'>
           <input type='text' name='message' id="message__input"/>
-          <button id="message__submit" name='submit'>Send</button>
+          <button id="new-message__submit" name='submit'>Send</button>
         </form>
       </div>
     );
