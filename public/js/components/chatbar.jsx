@@ -1,4 +1,5 @@
 var Chatbar = React.createClass({
+
   getDefaultProps: function() {
     return {
     };
@@ -11,7 +12,7 @@ var Chatbar = React.createClass({
 
     return (
       <div className="chatbar row">
-        <form action={ this.props.formPath } method='POST'>
+        <form action={ this.props.formPath } method='POST' onSubmit={this.onSubmitHandler}>
           <input type='text' name='message' id="message__input"/>
           <button id="new-message__submit" name='submit'>Send</button>
         </form>
