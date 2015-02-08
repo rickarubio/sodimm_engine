@@ -35,5 +35,5 @@ var routes = (
 );
 
 Router.run(routes, HistoryLocation, function (Handler) {
-  React.render(<Handler/>, document.body);
+  React.render(<Handler/>, document.getElementsByClassName('main-content')[0]);
 });
