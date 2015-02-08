@@ -23,6 +23,9 @@ var Chatroom = React.createClass({
         this.setState(result);
       }
     }.bind(this));
+    setTimeout(function() {
+      $('.messages-container').scrollTop($(document).height());
+    }, 1000);
   },
 
   addMessage: function(message) {
