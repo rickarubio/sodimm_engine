@@ -203,6 +203,7 @@ app.get('/members/:roomId',  chatController.getMembers);
 app.get('/user/:userId/getFav', userController.getFav);
 app.get('/user/:userId/addFav/:channelId', userController.addFav);
 app.get('/user/:userId/deleteFav/:channelId', userController.deleteFav);
+//app.get('/testSentiment', chatController.testSentiment);
 
 
 /*

@@ -3,6 +3,7 @@
 var Chat = require('../models/Chat');
 var Message = require('../models/Message');
 var User = require('../models/User');
+var request = require('request');
 // var secrets = require('../config/secrets');
 
 /**
@@ -78,21 +79,25 @@ exports.postMessage = function(req, res) {
   User.findById(req.user._id, function(err, user) {
     if (err) { throw err; }
 
-    console.log('user is', user.profile);
-    var message = new Message({
-      userId: req.user._id,
-      author: user.profile.name,
-      roomId: req.params.roomId,
-      message: req.body.message,
-      created: new Date()
-    });
-    console.log('message is:', message);
+    analyzeText(req.body.message,function(textScore){
+      console.log('user is', user.profile);
+      var message = new Message({
+        userId: req.user._id,
+        author: user.profile.name,
+        roomId: req.params.roomId,
+        message: req.body.message,
+        created: new Date(),
+        score: textScore
+      });
+      console.log('message is:', message);
 
-    message.save(function(err) {
-      if (err) { throw err; }
+      message.save(function(err) {
+        if (err) { throw err; }
 
-      res.json(message);
+        res.json(message);
+      });
     });
+
   });
 };
 
@@ -118,3 +123,47 @@ exports.getMembers = (function(req, res) {
 	});
 });
 
+//exports.testSentiment = function(req, res) {
+//exports.analyzeSentiment =
+var analyzeText = function(text,callback) {
+  //curl "https://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=i+love+the+idea&apikey=c50a67b4-1753-439c-bcb5-c72e5363253d"
+  //{
+  //  "positive": [
+  //  {
+  //    "sentiment": "love",
+  //    "topic": "cookies",
+  //    "score": 0.8053406931054015,
+  //    "original_text": "i love cookies",
+  //    "original_length": 14,
+  //    "normalized_text": "i love cookies",
+  //    "normalized_length": 14
+  //  }
+  //],
+  //    "negative": [],
+  //    "aggregate": {
+  //  "sentiment": "positive",
+  //      "score": 0.8053406931054015
+  //}
+  //}
+
+  //for debug
+  var text = 'i love cookies';
+
+  return request({
+    uri: 'https://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text='+ text +'&apikey=c50a67b4-1753-439c-bcb5-c72e5363253d',
+    method: 'GET',
+    timeout: 10000,
+    followRedirect: true,
+    maxRedirects: 10
+  }, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var response = JSON.parse(body);
+      var score = response.aggregate.score;
+      //res.json(score);
+      callback(score);
+    } else {
+      //res.json(0);
+      callback(0);
+    }
+  });
+};
