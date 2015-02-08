@@ -92,6 +92,7 @@ exports.postMessage = function(req, res) {
       if (err) { throw err; }
 
       res.json(message);
+      // res.send(200);
     });
   });
 };

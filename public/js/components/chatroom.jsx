@@ -18,6 +18,11 @@ var Chatroom = React.createClass({
     }.bind(this));
   },
 
+  addMessage: function(message) {
+    console.log('chatroom updated!');
+    this.state.messages.push(message);
+  },
+
   render: function() {
     var messages = this.state.messages;
     console.log('chatroom state:', this.state);
@@ -33,7 +38,7 @@ var Chatroom = React.createClass({
       <div>
         <h1>{ this.state.slug } <small>{ this.state.topic }</small></h1>
         { val }
-        <Chatbar formPath={ path } />
+        <Chatbar formPath={ path } updateParent={ this.addMessage } />
       </div>
     );
   }
