@@ -9,6 +9,13 @@ var Chatroom = React.createClass({
   },
 
   componentDidMount: function() {
+    window.setInterval(function() {
+      this.getMessages();
+    }.bind(this),
+    1000);
+  },
+
+  getMessages: function() {
     var params = this.getParams();
     $.get('/chat/' + params.roomId, function(result) {
       console.log('ajax result:', result);
