@@ -21,9 +21,10 @@ var Chatrooms = React.createClass({
       return (
         <div className='row' key={ room.name }>
           <div className='col-sm-3'>
-            <Link to='chatroom' params={{ roomId: room.slug }}>{ room.name }</Link>
+            <Link to='chatroom' params={{ roomId: room.slug }}
+                  className="chatroom-chat-title">{ room.name }</Link>
           </div>
-          <div className='col-sm-9'> { room.topic } </div>
+          <div className='col-sm-9' className='chatroom-chat-topic'> { room.topic } </div>
         </div>
       );
     });
