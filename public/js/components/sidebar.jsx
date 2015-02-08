@@ -1,7 +1,7 @@
 var Sidebar = React.createClass({
   getInitialState: function() {
     return {
-      sections: []
+      sections: [{name: 'A'}, {name: 'B'}, {name: 'C'}]
     };
   },
 
@@ -9,7 +9,7 @@ var Sidebar = React.createClass({
     //$.get('/chat', function(result) {
       //if (this.isMounted()) {
         //this.setState(result);
-      //}
+      //i}
     //}.bind(this));
   //},
 
@@ -28,7 +28,6 @@ var Sidebar = React.createClass({
       </div>
     );
   }
-
 });
 
 React.render(
