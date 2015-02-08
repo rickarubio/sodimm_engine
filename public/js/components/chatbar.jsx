@@ -17,6 +17,7 @@ var Chatbar = React.createClass({
       console.log('chatbox props', this.props);
       this.props.updateParent(data);
     }.bind(this));
+    $('form input').val('');
   },
 
   render: function() {
