@@ -82,6 +82,7 @@ exports.postMessage = function(req, res) {
     res.json(message);
   });
 };
+
 /**
  * GET /chat/:messageId
  * returns one messages from the chatroom
@@ -89,12 +90,10 @@ exports.postMessage = function(req, res) {
  * @param {object} res - response
  * @returns {null} void
  */
-exports.getMessage = function(req, res) {
-  Message.find({ messageId: req.params.messageId }, function(err, docs) {
-    if (err) { throw err; }
+// exports.getMessage = function(req, res) {
+//   Message.find({ messageId: req.params.messageId }, function(err, docs) {
+//     if (err) { throw err; }
 
-    res.json(message);
-    });
-  });
-};
-
+//     res.json(message);
+//     });
+// };
