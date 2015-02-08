@@ -1,7 +1,3 @@
-
-/*
- * TODO add sidebar to layout
- */
 var App = React.createClass({
   render: function() {
     return (

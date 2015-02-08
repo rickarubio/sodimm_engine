@@ -16,10 +16,6 @@ exports.getChatrooms = function(req, res) {
     if (err) { throw err; }
 
     res.json({ rooms: chatrooms });
-    // res.render('chatroom', {
-    //   title: 'Chat Rooms',
-    //   chatrooms: chatrooms
-    // });
   });
 };
 
@@ -35,7 +31,7 @@ exports.createChatroom = function(req, res) {
   var newChatroom = new Chat({
     name: req.body.name,
     topic: req.body.topic,
-    slug: req.body.name.replace(/\W+/g, "_")
+    slug: req.body.name.replace(/\W+/g, '_')
   });
   newChatroom.save(function (err, doc) {
     if (err) { throw err; }
@@ -75,7 +71,7 @@ exports.postMessage = function(req, res) {
     userId: req.body.userId,
     roomId: req.params.roomId,
     message: req.body.message,
-	created: new Date()
+    created: new Date()
   });
 
   message.save(function(err) {
@@ -84,4 +80,3 @@ exports.postMessage = function(req, res) {
     res.json(message);
   });
 };
-
