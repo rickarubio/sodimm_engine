@@ -15,16 +15,14 @@
 $sidebar-width: 200px;
 $sidebar-section-height: 50px;
 
-#sidebar {
+.sidebar {
   position: fixed;
   top: $navbar-height;
   left: 0;
   height: calc(100% - #{$navbar-height});
   width: $sidebar-width;
   box-shadow: 0 1px 5px rgba(0,0,0,.15);
-}
 
-.sidebar {
   &__section {
 
     a {

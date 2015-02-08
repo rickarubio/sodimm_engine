@@ -1,5 +1,5 @@
 var Chatroom = React.createClass({
-  mixins: [Router.State],
+  mixins: [State],
 
   getInitialState: function() {
     return {
@@ -29,17 +29,11 @@ var Chatroom = React.createClass({
 
     return (
       <div>
-        <h2>{ this.state.name }</h2>
+        <h1>{ this.state.name }</h1>
+        <h2>{ this.state.topic }</h2>
         { val }
       </div>
     );
   }
 
 });
-
-Chatroom = React.createFactory(Chatroom);
-
-React.render(
-  Chatroom(),
-  document.getElementById('chatroom')
-);

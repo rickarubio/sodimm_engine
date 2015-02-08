@@ -17,10 +17,6 @@ exports.getChatrooms = function(req, res) {
     if (err) { throw err; }
 
     res.json({ rooms: chatrooms });
-    // res.render('chatroom', {
-    //   title: 'Chat Rooms',
-    //   chatrooms: chatrooms
-    // });
   });
 };
 
@@ -29,13 +25,14 @@ exports.getChatrooms = function(req, res) {
  * create a new chatroom. Room name is passed in the req.body
  * @param {object} req - request
  * @param {object} res - response
- * @param {object} next - next
  * @returns {null} void
  */
 exports.createChatroom = function(req, res) {
+  console.log('body:', req.body);
   var newChatroom = new Chat({
     name: req.body.name,
-    topic: req.body.topic
+    topic: req.body.topic,
+    slug: req.body.name.replace(/\W+/g, '_')
   });
   newChatroom.save(function (err, doc) {
     if (err) { throw err; }
@@ -75,7 +72,7 @@ exports.postMessage = function(req, res) {
     userId: req.body.userId,
     roomId: req.params.roomId,
     message: req.body.message,
-	created: new Date()
+    created: new Date()
   });
 
   message.save(function(err) {
@@ -106,3 +103,4 @@ exports.getMembers = (function(req, res) {
 		res.json(names);
 	});
 });
+
