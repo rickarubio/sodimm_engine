@@ -52,9 +52,15 @@ exports.getChatroom = function(req, res) {
   Message.find({ roomId: req.params.roomId }, function(err, docs) {
     if (err) { throw err; }
 
-    res.json({
-      name: req.params.roomId,
-      messages: docs
+    Chat.findOne({ slug: req.params.roomId }, function(err, room) {
+      if (err) { throw err; }
+
+      res.json({
+        slug: req.params.roomId,
+        topic: room.topic,
+        name: room.name,
+        messages: docs
+      });
     });
   });
 };
