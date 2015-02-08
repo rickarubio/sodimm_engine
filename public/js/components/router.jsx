@@ -1,19 +1,11 @@
-var Router = ReactRouter;
-
-var DefaultRoute = Router.DefaultRoute;
-var Link = Router.Link;
-var Route = Router.Route;
-var RouteHandler = Router.RouteHandler;
-var HistoryLocation = Router.HistoryLocation;
-
-/*
- * TODO add sidebar to layout
- */
 var App = React.createClass({
   render: function() {
     return (
-      <div>
-        <RouteHandler />
+      <div className="container">
+        <Sidebar />
+        <div className="row">
+          <RouteHandler />
+        </div>
       </div>
     );
   }
@@ -31,7 +23,7 @@ var routes = (
 
     <Route
       name="chatroom"
-      path=":roomId"
+      path="chatroom/?:roomId?"
       handler={ Chatroom } />
 
   </Route>

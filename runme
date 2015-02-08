@@ -1,0 +1,4 @@
+[ ! -d node_modules ] && npm install
+echo "starting sodimm"
+
+node app.js

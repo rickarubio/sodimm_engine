@@ -1,7 +1,14 @@
 var Sidebar = React.createClass({
   getInitialState: function() {
     return {
-      sections: [{name: 'Create A Channel'}, {name: 'Search Channels'}, {name: '#JavaScript'}]
+      sections: [
+        {name: 'Create A Channel', iconClassName: 'fa fa-plus', action: 'create'},
+        {name: 'Search Channels', iconClassName: 'fa fa-search'},
+        {name: 'JavaScript', iconClassName: 'fa fa-comments-o'},
+        {name: 'React', iconClassName: 'fa fa-comments-o'},
+        {name: 'Node', iconClassName: 'fa fa-comments-o'},
+        {name: 'Bitcoin', iconClassName: 'fa fa-comments-o'}
+      ]
     };
   },
 
@@ -17,23 +24,14 @@ var Sidebar = React.createClass({
     var sections = this.state.sections;
     var sectionHtml = sections.map(function(section) {
       return (
-        <div className="sidebar__section" key={ section.name }>
-          <a href="#">
-              { section.name }
-          </a>
-        </div>
+        <SidebarSection name={section.name} iconClassName={section.iconClassName} action={section.action}/>
       );
     });
 
     return (
-      <div>
+      <div className="sidebar">
         { sectionHtml }
       </div>
     );
   }
 });
-
-React.render(
-  <Sidebar />,
-  document.getElementById('sidebar')
-);

@@ -1,16 +1,15 @@
 extends layout
 
 block content
-  #sidebar
   .main-content
-    #chatrooms
-    #chatroom
 
   script(src='/js/lib/react.js')
   script(src='/js/lib/JSXTransformer.js')
   script(src='/js/lib/react-router.js')
-  script(type="text/jsx" src='/js/components/sidebar_section.jsx')
+  script(src='/js/globals.js')
   script(type="text/jsx" src='/js/components/sidebar.jsx')
-  script(type="text/jsx" src='/js/components/chatroom.jsx')
+  script(type="text/jsx" src='/js/components/sidebar_section.jsx')
   script(type="text/jsx" src='/js/components/chatrooms.jsx')
+  script(type="text/jsx" src='/js/components/chatroom.jsx')
+  script(type="text/jsx" src='/js/components/chatbar.jsx')
   script(type="text/jsx" src='/js/components/router.jsx')
