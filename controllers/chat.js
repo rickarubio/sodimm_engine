@@ -24,10 +24,10 @@ exports.getChatrooms = function(req, res) {
  * create a new chatroom. Room name is passed in the req.body
  * @param {object} req - request
  * @param {object} res - response
- * @param {object} next - next
  * @returns {null} void
  */
 exports.createChatroom = function(req, res) {
+  console.log('body:', req.body);
   var newChatroom = new Chat({
     name: req.body.name,
     topic: req.body.topic,

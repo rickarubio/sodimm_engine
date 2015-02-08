@@ -29,8 +29,8 @@ var Chatroom = React.createClass({
 
     return (
       <div>
-        <h1>Chatroom!</h1>
-        <h2>{ this.state.name }</h2>
+        <h1>{ this.state.name }</h1>
+        <h2>{ this.state.topic }</h2>
         { val }
       </div>
     );
