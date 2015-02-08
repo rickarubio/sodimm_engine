@@ -14,4 +14,5 @@ var SidebarSection = React.createClass({
         </a>
       </div>
     );
-  }});
+  }
+});

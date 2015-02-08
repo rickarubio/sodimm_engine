@@ -30,11 +30,10 @@ var Chatroom = React.createClass({
 
     return (
       <div>
-        <h1 className="col-sm-1">{ this.state.slug }</h1>
-        <h2 className="col-sm-9">{ this.state.topic }</h2>
+        <h1>{ this.state.slug } <small>{ this.state.topic }</small></h1>
         { val }
+        <Chatbar />
       </div>
     );
   }
-
 });
