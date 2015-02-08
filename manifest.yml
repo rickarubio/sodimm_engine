@@ -1,0 +1,7 @@
+---
+applications:
+- name: SODIMM-Team-33
+  buildpack: https://github.com/heroku/heroku-buildpack-nodejs
+  mem: 128M
+  path: .
+

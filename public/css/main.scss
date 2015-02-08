@@ -51,11 +51,13 @@ $sidebar-section-height: 50px;
 }
 
 html {
+  overflow-x: hidden;
   position: relative;
   min-height: 100%;
 }
 
 body {
+  overflow-x: hidden;
   padding-top: 60px;
   margin-bottom: 75px;
   -webkit-font-smoothing: antialiased;
