@@ -1,6 +1,8 @@
-/**
- * Module dependencies.
- */
+// load .env file
+var dotenv = require('dotenv');
+dotenv.load();
+
+// Module Dependencies
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var compress = require('compression');
