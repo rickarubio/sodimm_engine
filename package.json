@@ -53,6 +53,8 @@
     "passport-oauth": "^1.0.0",
     "passport-twitter": "^1.0.2",
     "paypal-rest-sdk": "^1.4.0",
+    "react": "^0.12.2",
+    "react-router": "^0.11.6",
     "request": "^2.53.0",
     "stripe": "^3.1.0",
     "tumblr.js": "^0.0.4",
