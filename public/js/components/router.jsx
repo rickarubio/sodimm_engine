@@ -1,5 +1,11 @@
-var Route = ReactRouter.Route;
-var RouteHandler = ReactRouter.Handler;
+var Router = ReactRouter;
+
+var DefaultRoute = Router.DefaultRoute;
+var Link = Router.Link;
+var Route = Router.Route;
+var RouteHandler = Router.RouteHandler;
+var HistoryLocation = Router.HistoryLocation;
+
 var App = React.createClass({
   render: function() {
     return (
@@ -11,15 +17,23 @@ var App = React.createClass({
 });
 
 var routes = (
-  <Route handler={App} path="/">
-    <Route name="chatroom" handler={Chatroom} />
-    <Route name="chatrooms" handler={Chatrooms} />
+  <Route
+    name='app'
+    path='/'
+    handler={ App }>
+
+    <DefaultRoute
+      name="chatrooms"
+      handler={ Chatrooms } />
+
+    <Route
+      name="chatroom"
+      path='/chat/:roomId'
+      handler={ Chatroom } />
+
   </Route>
 );
 
-ReactRouter.run(routes, ReactRouter.HistoryLocation, function (Handler) {
-  React.render(
-    <Handler />,
-    document.body
-  );
+Router.run(routes, HistoryLocation, function (Handler) {
+  React.render(<Handler/>, document.body);
 });
