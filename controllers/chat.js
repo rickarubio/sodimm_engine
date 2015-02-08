@@ -148,7 +148,7 @@ var analyzeText = function(text,callback) {
   //}
 
   //for debug
-  var text = 'i love cookies';
+  //var text = 'i love cookies';
 
   return request({
     uri: 'https://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text='+ text +'&apikey=c50a67b4-1753-439c-bcb5-c72e5363253d',
