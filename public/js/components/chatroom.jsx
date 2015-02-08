@@ -48,7 +48,7 @@ var Chatroom = React.createClass({
         sentiment = '';
       }
       return (
-        <p className={ sentiment }>
+        <p className={ sentiment } key={ e._id }>
           <i className="fa fa-thumbs-o-up"></i> { e.author } | { e.message }
         </p>
       );
