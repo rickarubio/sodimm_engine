@@ -38,9 +38,7 @@ var Chatrooms = React.createClass({
 
 });
 
-Chatrooms = React.createFactory(Chatrooms);
-
 React.render(
-  Chatrooms(),
+  <Chatrooms />,
   document.getElementById('chatrooms')
 );
