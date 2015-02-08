@@ -27,8 +27,8 @@ var Chatbar = React.createClass({
       <div className="chatbar row">
         <form id='newMessageForm' action={ this.props.formPath }
               method='POST' onSubmit={ this.handler }>
-          <input type='text' name='message' className="col-sm-10"/>
-          <button id="newMessage" name='submit' className="col-sm-2">Send</button>
+          <input type='text' name='message' id="message__input"/>
+          <button id="newMessage" name='submit'>Send</button>
         </form>
       </div>
     );
