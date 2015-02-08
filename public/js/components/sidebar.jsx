@@ -1,7 +1,7 @@
 var Sidebar = React.createClass({
   getInitialState: function() {
     return {
-      sections: [{name: 'A'}, {name: 'B'}, {name: 'C'}]
+      sections: [{name: 'Create A Channel'}, {name: 'Search Channels'}, {name: '#JavaScript'}]
     };
   },
 
@@ -18,7 +18,11 @@ var Sidebar = React.createClass({
     console.log('sections', sections);
     var sectionHtml = sections.map(function(section) {
       return (
-        <div>{ section.name }</div>
+        <div className="sidebar__section">
+          <a href="#">
+              { section.name }
+          </a>
+        </div>
       );
     });
 

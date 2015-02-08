@@ -13,6 +13,7 @@
 // Scaffolding
 // -------------------------
 $sidebar-width: 200px;
+$sidebar-section-height: 50px;
 
 #sidebar {
   position: fixed;
@@ -21,6 +22,31 @@ $sidebar-width: 200px;
   height: calc(100% - #{$navbar-height});
   width: $sidebar-width;
   box-shadow: 0 1px 5px rgba(0,0,0,.15);
+}
+
+.sidebar {
+  &__section {
+
+    a {
+      transition: color 0.5s ease;
+      color: black;
+    }
+
+    height: $sidebar-section-height;
+    text-align: center;
+    box-shadow: 1px 0 5px rgba(0,0,0,.15);
+    line-height: $sidebar-section-height;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $brand-primary;
+
+      a {
+        color: white;
+      }
+    }
+  }
 }
 
 .main-content {
