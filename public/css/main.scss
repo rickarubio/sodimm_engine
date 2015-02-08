@@ -14,6 +14,22 @@
 // -------------------------
 $sidebar-width: 200px;
 $sidebar-section-height: 50px;
+.chatroom-container {
+  height: 100%;
+}
+
+.messages-container {
+  overflow-y: scroll;
+  height: 580px;
+}
+
+#new-message__submit {
+  width: 70px;
+}
+
+#message__input {
+  width: 80%;
+}
 
 .sidebar {
   position: fixed;
@@ -51,11 +67,13 @@ $sidebar-section-height: 50px;
 }
 
 html {
+  overflow: hidden;
   position: relative;
   min-height: 100%;
 }
 
 body {
+  overflow: hidden;
   padding-top: 60px;
   margin-bottom: 75px;
   -webkit-font-smoothing: antialiased;

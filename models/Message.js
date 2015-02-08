@@ -11,5 +11,4 @@ var messageSchema = new mongoose.Schema({
     score : String
 });
 
-
 module.exports = mongoose.model('Message', messageSchema);

@@ -3,9 +3,7 @@ var App = React.createClass({
     return (
       <div className="container">
         <Sidebar />
-        <div className="row">
-          <RouteHandler />
-        </div>
+        <RouteHandler />
       </div>
     );
   }

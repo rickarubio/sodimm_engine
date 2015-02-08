@@ -96,6 +96,7 @@ exports.postMessage = function(req, res) {
 
         res.json(message);
       });
+      // res.send(200);
     });
 
   });
