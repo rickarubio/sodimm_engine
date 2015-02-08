@@ -5,10 +5,15 @@ var Chatbar = React.createClass({
   },
 
   render: function() {
+    // var formAction = '/chat/' + { this.props.roomId };
+    console.log('chatbar props', this.props);
+
     return (
       <div className="chatbar row">
-        <input type='text' name='chatbar' className="col-sm-10"/>
-        <button name='submit' className="col-sm-2">Send</button>
+        <form action={ this.props.formPath } method='POST'>
+          <input type='text' name='message' className="col-sm-10"/>
+          <button name='submit' className="col-sm-2">Send</button>
+        </form>
       </div>
     );
   }

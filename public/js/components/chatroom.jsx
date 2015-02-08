@@ -21,6 +21,7 @@ var Chatroom = React.createClass({
   render: function() {
     var messages = this.state.messages;
     console.log('chatroom state:', this.state);
+    var path = '/chat/' + this.state.slug
 
     var val = messages.map(function(e) {
       return (
@@ -32,7 +33,7 @@ var Chatroom = React.createClass({
       <div>
         <h1>{ this.state.slug } <small>{ this.state.topic }</small></h1>
         { val }
-        <Chatbar />
+        <Chatbar formPath={ path } />
       </div>
     );
   }
