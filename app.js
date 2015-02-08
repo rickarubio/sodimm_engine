@@ -124,6 +124,7 @@ app.post('/chat',         chatController.createChatroom);
 app.get('/chat/:roomId',  chatController.getChatroom);
 app.post('/chat/:roomId', chatController.postMessage);
 
+
 /**
  * API examples routes.
  */

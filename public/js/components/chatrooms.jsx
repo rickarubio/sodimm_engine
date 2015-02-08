@@ -17,8 +17,14 @@ var Chatrooms = React.createClass({
     var rooms = this.state.rooms;
     console.log('rooms', rooms);
     var val = rooms.map(function(e) {
+		var path = '/chat/' + e.name;
       return (
-        <div>{ e.name } | { e.topic }</div>
+	<div className='row'>
+        <div className='col-sm-3'> 
+			<a href={ path }> { e.name } </a>
+		</div>  
+    	<div className='col-sm-3'> { e.topic } </div>
+</div>
       );
     });
 
