@@ -34,7 +34,8 @@ exports.getChatrooms = function(req, res) {
 exports.createChatroom = function(req, res) {
   var newChatroom = new Chat({
     name: req.body.name,
-    topic: req.body.topic
+    topic: req.body.topic,
+    slug: req.body.name.replace(/\W+/g, "_")
   });
   newChatroom.save(function (err, doc) {
     if (err) { throw err; }
@@ -73,7 +74,8 @@ exports.postMessage = function(req, res) {
   var message = new Message({
     userId: req.body.userId,
     roomId: req.params.roomId,
-    message: req.body.message
+    message: req.body.message,
+	created: new Date()
   });
 
   message.save(function(err) {
@@ -83,17 +85,3 @@ exports.postMessage = function(req, res) {
   });
 };
 
-/**
- * GET /chat/:messageId
- * returns one messages from the chatroom
- * @param {object} req - request
- * @param {object} res - response
- * @returns {null} void
- */
-// exports.getMessage = function(req, res) {
-//   Message.find({ messageId: req.params.messageId }, function(err, docs) {
-//     if (err) { throw err; }
-
-//     res.json(message);
-//     });
-// };
