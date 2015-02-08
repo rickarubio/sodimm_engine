@@ -12,6 +12,20 @@
 
 // Scaffolding
 // -------------------------
+$sidebar-width: 200px;
+
+#sidebar {
+  position: fixed;
+  top: $navbar-height;
+  left: 0;
+  height: calc(100% - #{$navbar-height});
+  width: $sidebar-width;
+  box-shadow: 0 1px 5px rgba(0,0,0,.15);
+}
+
+.main-content {
+  margin-left: $sidebar-width;
+}
 
 html {
   position: relative;

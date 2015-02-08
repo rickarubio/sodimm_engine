@@ -17,9 +17,8 @@ html
       include partials/flash
       block content
 
-    include partials/footer
-
     != js('application')
+    script(type="text/jsx" src='js/components/sidebar.jsx')
     script(type="text/jsx" src='js/components/chatroom.jsx')
     script(type="text/jsx" src='js/components/chatrooms.jsx')
     script(type="text/jsx" src='js/components/router.jsx')

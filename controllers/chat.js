@@ -82,3 +82,43 @@ exports.postMessage = function(req, res) {
     res.json(message);
   });
 };
+/**
+ * GET /chat/dummy:dummyId
+ * returns a single dummychat with 10 previous messages
+ * @param {object} req - request
+ * @param {object} res - response
+ * @returns {null} void
+ */
+exports.getDummy = function(req, res) {
+  Message.find({ dummyId: req.params.dummyId }, function(err, docs) {
+    if (err) { throw err; }
+
+    res.json({
+      name: req.params.dummyId,
+      messages: docs
+    });
+  });
+};
+
+/**
+ * POST /chat/dummy:dummyId
+ * publish a message into the dummyroom
+ * @param {object} req - request
+ * @param {object} res - response
+ * @param {object} next - next
+ * @returns {null} void
+ */
+exports.postDummy = function(req, res) {
+  var message = new Message({
+    userId: req.body.userId,
+    dummyId: req.params.dummyId,
+    message: req.body.message
+  });
+
+  message.save(function(err) {
+    if (err) { throw err; }
+
+    res.json(message);
+  });
+
+};
