@@ -26,7 +26,7 @@ var Sidebar = React.createClass({
     });
 
     return (
-      <div>
+      <div className="col-sm-3">
         { sectionHtml }
       </div>
     );

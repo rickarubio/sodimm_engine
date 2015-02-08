@@ -30,7 +30,7 @@ var Chatrooms = React.createClass({
     });
 
     return (
-      <div>
+      <div className="col-sm-9">
         <h2>Chatrooms</h2>
         { val }
       </div>

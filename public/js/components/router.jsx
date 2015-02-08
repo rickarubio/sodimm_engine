@@ -5,7 +5,8 @@
 var App = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="row">
+        <Sidebar />
         <RouteHandler />
       </div>
     );
