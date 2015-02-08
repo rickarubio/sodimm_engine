@@ -1,4 +1,10 @@
 var SidebarSection = React.createClass({
+  sectionAction: function() {
+    if (this.props.action === 'create') {
+      $('#myModal').modal('toggle')
+    }
+  },
+
   getDefaultProps: function() {
     return {
       iconClassName: 'hide'
@@ -7,9 +13,9 @@ var SidebarSection = React.createClass({
 
   render: function() {
     return (
-      <div className="sidebar__section">
+      <div className="sidebar__section" onClick={this.sectionAction}>
         <a href="#">
-         <i className={ this.props.iconClassName }></i>
+         <i className={ this.props.iconClassName } action={ this.props.action }></i>
           { this.props.name }
         </a>
       </div>

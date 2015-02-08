@@ -29,9 +29,8 @@ $sidebar-section-height: 50px;
       transition: color 0.5s ease;
       color: black;
     }
-
+    padding-left: 30px;
     height: $sidebar-section-height;
-    text-align: center;
     box-shadow: 1px 0 5px rgba(0,0,0,.15);
     line-height: $sidebar-section-height;
     transition: background-color 0.5s ease;
