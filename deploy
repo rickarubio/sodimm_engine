@@ -1,0 +1,4 @@
+#cf login https://api.ng.bluemix.net
+#cf api https://api.ng.bluemix.net
+
+cf push sodimm -m 512m

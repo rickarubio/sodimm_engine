@@ -5,6 +5,20 @@ var Chatbar = React.createClass({
     };
   },
 
+  handler: function(event) {
+    event.preventDefault();
+    console.log('button intercepted!', event);
+    var formData = {
+      message: $('form input').val()
+    };
+    $.post(this.props.formPath, formData, function(data) {
+      // append message to log
+      console.log('$.post data:', data);
+      console.log('chatbox props', this.props);
+      this.props.updateParent(data);
+    }.bind(this));
+  },
+
   render: function() {
     // var formAction = '/chat/' + { this.props.roomId };
     console.log('chatbar props', this.props);
@@ -12,7 +26,8 @@ var Chatbar = React.createClass({
 
     return (
       <div className="chatbar row">
-        <form action={ this.props.formPath } method='POST' onSubmit={this.onSubmitHandler}>
+        <form id='newMessageForm' action={ this.props.formPath }
+              method='POST' onSubmit={ this.handler }>
           <input type='text' name='message' id="message__input"/>
           <button id="new-message__submit" name='submit'>Send</button>
         </form>
