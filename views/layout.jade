@@ -9,7 +9,6 @@ html
     != css('main')
     script(src='/js/lib/react.js')
     script(src='/js/lib/JSXTransformer.js')
-    script(type="text/jsx" src='js/components/chatroom.jsx')
   body
     include partials/navbar
 
@@ -20,3 +19,5 @@ html
     include partials/footer
 
     != js('application')
+    script(type="text/jsx" src='js/components/chatroom.jsx')
+    script(type="text/jsx" src='js/components/chatrooms.jsx')

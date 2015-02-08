@@ -12,10 +12,14 @@ var Message = require('../models/Message');
  * @returns {null} void
  */
 exports.getChatrooms = function(req, res) {
-  Chat.find(function (err, chats) {
+  Chat.find(function (err, chatrooms) {
     if (err) { throw err; }
 
-    res.json(chats);
+    res.json({ rooms: chatrooms });
+    // res.render('chatroom', {
+    //   title: 'Chat Rooms',
+    //   chatrooms: chatrooms
+    // });
   });
 };
 
@@ -50,7 +54,10 @@ exports.getChatroom = function(req, res) {
   Message.find({ roomId: req.params.roomId }, function(err, docs) {
     if (err) { throw err; }
 
-    res.json(docs);
+    res.json({
+      name: req.params.roomId,
+      messages: docs
+    });
   });
 };
 
