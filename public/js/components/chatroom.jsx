@@ -1,4 +1,6 @@
 var Chatroom = React.createClass({
+  mixins: [Router.State],
+
   getInitialState: function() {
     return {
       messages: [],
@@ -7,7 +9,9 @@ var Chatroom = React.createClass({
   },
 
   componentDidMount: function() {
-    $.get('/chat/' + '', function(result) {
+    var params = this.getParams();
+    console.log('chatroom params:', params.roomId);
+    $.get('/chat/' + params.roomId, function(result) {
       if (this.isMounted()) {
         this.setState(result);
       }

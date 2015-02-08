@@ -115,17 +115,6 @@ app.post('/account/delete', passportConf.isAuthenticated, userController.postDel
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
 /**
- * SODIMM routes
- */
-app.get('/user/:userId', userController.getUser);
-
-app.get('/chat',          chatController.getChatrooms);
-app.post('/chat',         chatController.createChatroom);
-app.get('/chat/:roomId',  chatController.getChatroom);
-app.post('/chat/:roomId', chatController.postMessage);
-// app.get('/chat/:messageId', chatController.getMessage);
-
-/**
  * API examples routes.
  */
 app.get('/api', apiController.getApi);
@@ -199,6 +188,26 @@ app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect:
 app.get('/auth/venmo', passport.authorize('venmo', { scope: 'make_payments access_profile access_balance access_email access_phone' }));
 app.get('/auth/venmo/callback', passport.authorize('venmo', { failureRedirect: '/api' }), function(req, res) {
   res.redirect('/api/venmo');
+});
+
+/**
+ * SODIMM routes
+ */
+app.get('/user/:userId', userController.getUser);
+
+app.get('/chat',          chatController.getChatrooms);
+app.post('/chat',         chatController.createChatroom);
+app.get('/chat/:roomId',  chatController.getChatroom);
+app.post('/chat/:roomId', chatController.postMessage);
+// app.get('/chat/:messageId', chatController.getMessage);
+
+/*
+ * react-router catch-all
+ */
+app.get('*', function(req, res){
+  res.render('home', {
+    title: req.params.roomId
+  });
 });
 
 /**

@@ -17,7 +17,7 @@ var Chatrooms = React.createClass({
   render: function() {
     var rooms = this.state.rooms;
     var val = rooms.map(function(e) {
-      var path = '/chat/' + e.name;
+      var path = '/chatroom/' + e.name;
 
       return (
         <div className='row' key={ e.name }>
