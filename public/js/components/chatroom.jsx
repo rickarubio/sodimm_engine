@@ -32,8 +32,18 @@ var Chatroom = React.createClass({
     var path = '/chat/' + this.state.slug;
 
     var val = messages.map(function(e) {
+      var sentiment;
+      if (e.score > 0) {
+        sentiment = 'good';
+      } else if (e.score < 0){
+        sentiment = 'bad';
+      } else {
+        sentiment = '';
+      }
       return (
-        <p>{ e.author } | { e.message }</p>
+        <p className={ sentiment }>
+          <i className="fa fa-thumbs-o-up"></i> { e.author } | { e.message }
+        </p>
       );
     });
 
