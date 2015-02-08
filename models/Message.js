@@ -7,7 +7,8 @@ var messageSchema = new mongoose.Schema({
     roomId : String,
     created : Date,
     message : String,
-    author: String
+    author: String,
+    score : String
 });
 
 module.exports = mongoose.model('Message', messageSchema);
