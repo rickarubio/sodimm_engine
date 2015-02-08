@@ -84,5 +84,3 @@ exports.postMessage = function(req, res) {
   });
 };
 
-};
-
