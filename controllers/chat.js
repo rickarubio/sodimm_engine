@@ -2,6 +2,7 @@
 // var async = require('async');
 var Chat = require('../models/Chat');
 var Message = require('../models/Message');
+var User = require('../models/User');
 // var secrets = require('../config/secrets');
 
 /**
@@ -51,9 +52,15 @@ exports.getChatroom = function(req, res) {
   Message.find({ roomId: req.params.roomId }, function(err, docs) {
     if (err) { throw err; }
 
-    res.json({
-      name: req.params.roomId,
-      messages: docs
+    Chat.findOne({ slug: req.params.roomId }, function(err, room) {
+      if (err) { throw err; }
+
+      res.json({
+        slug: req.params.roomId,
+        topic: room.topic,
+        name: room.name,
+        messages: docs
+      });
     });
   });
 };
@@ -80,3 +87,26 @@ exports.postMessage = function(req, res) {
     res.json(message);
   });
 };
+
+/**
+ * GET /members/:roomId
+ * returns all members in a room
+ * @param {object} req - request
+ * @param {object} res - response
+ * @returns {null} void
+ */
+exports.getMembers = (function(req, res) {
+	var names = [];
+
+	Message.find({ roomId: req.params.roomId }, function(err, messages) {
+		if (err) { throw err; };
+		messages.forEach(function(message){
+			var userId = message.userId;
+			User.findOne({_id:userId},function(err,user){
+				names.push(user.profile.name);
+			})
+		});
+		res.json(names);
+	});
+});
+
