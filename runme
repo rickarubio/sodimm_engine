@@ -1,4 +1,4 @@
-[ ! -d node_modules ] && npm install
+[ ! -d node_modules ] && tar zxf ./sodimm-vagrant-chef/node_modules.tgz
 echo "starting sodimm"
 
 node app.js

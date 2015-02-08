@@ -23,7 +23,7 @@ execute "apt-get update" do
   action :run
 end
 
-execute "apt-get -y install git nodejs" do
+execute "apt-get -y install git nodejs npm" do
   action :run
 end
 
