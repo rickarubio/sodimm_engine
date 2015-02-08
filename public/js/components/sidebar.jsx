@@ -15,10 +15,9 @@ var Sidebar = React.createClass({
 
   render: function() {
     var sections = this.state.sections;
-    console.log('sections', sections);
     var sectionHtml = sections.map(function(section) {
       return (
-        <div className="sidebar__section">
+        <div className="sidebar__section" key={ section.name }>
           <a href="#">
               { section.name }
           </a>

@@ -1,4 +1,5 @@
 var Chatrooms = React.createClass({
+
   getInitialState: function() {
     return {
       rooms: []
@@ -15,16 +16,16 @@ var Chatrooms = React.createClass({
 
   render: function() {
     var rooms = this.state.rooms;
-    console.log('rooms', rooms);
     var val = rooms.map(function(e) {
-		var path = '/chat/' + e.name;
+      var path = '/chat/' + e.name;
+
       return (
-	<div className='row'>
-        <div className='col-sm-3'> 
-			<a href={ path }> { e.name } </a>
-		</div>  
-    	<div className='col-sm-3'> { e.topic } </div>
-</div>
+        <div className='row' key={ e.name }>
+          <div className='col-sm-3'>
+            <a href={ path }> { e.name } </a>
+          </div>
+          <div className='col-sm-3'> { e.topic } </div>
+        </div>
       );
     });
 
@@ -35,7 +36,6 @@ var Chatrooms = React.createClass({
       </div>
     );
   }
-
 });
 
 React.render(
