@@ -3,6 +3,8 @@
 Getting Started
 ---------------
 
+sodimm-vagrant-chef is used for development
+
 ```
 $ npm install
 
