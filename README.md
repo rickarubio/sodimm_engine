@@ -10,8 +10,8 @@ node app.js
 ```
 
 ## Screenshots
-![](https://dl-web.dropbox.com/get/Screenshots/Screenshot%202015-02-09%2019.25.08.png?_subject_uid=60861504&w=AAAz25nXWoKlaGg_RqLSwN0CCgxkOZBCRjVtFLeuOrrLWg)
-![](https://dl-web.dropbox.com/get/Screenshots/Screenshot%202015-02-09%2019.25.24.png?_subject_uid=60861504&w=AACnTJMMgIAX-fL_0WGTpwXchJ6uDK2NnDhjcmPzaGTH0g)
+![](screenshot1.png)
+![](screenshot2.png)
 
 ## License
 Copyright Alex, Harry Moreno, Ricardo Rubio, Harvey Chan. All rights reserved.
